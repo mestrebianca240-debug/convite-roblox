@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Convite Especial - Roblox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <!-- Tela 1: Pedir o nome -->
+        <section id="step-name" class="card active">
+            <div class="badge">CONVITE ESPECIAL</div>
+            <h1>🎮 Bora farmar no Roblox pedrokis?</h1>
+            <p>Antes de continuar, digite o seu nome Pedrokis:</p>
+            <input type="text" id="player-name" placeholder="Seu nome ou nick..." autocomplete="off" enterkeyhint="done">
+            <button id="btn-start" class="btn-primary">Continuar</button>
+            <p id="error-msg" class="error hidden">Pedrokis, digite seu nome primeiro!</p>
+        </section>
+
+        <!-- Tela 2: O Pedido com botão Não fugitivo -->
+        <section id="step-invite" class="card hidden">
+            <div class="badge">RESPONDA COM SINCERIDADE PEDROKIS</div>
+            <h1>E aí, <span id="display-name">Player</span>!</h1>
+            <p class="question">Você aceita jogar Roblox comigo agora e farma aura?</p>
+            <div class="buttons-area">
+                <button id="btn-yes" class="btn-yes">SIM! Bora! 🚀</button>
+                <button id="btn-no" class="btn-no">Não 😢</button>
+            </div>
+        </section>
+
+        <!-- Tela 3: Confirmação e Lista de Respostas em Tempo Real (Firebase) -->
+        <section id="step-saved" class="card hidden">
+            <div class="badge success-badge">CONVITE ACEITO! 🎉</div>
+            <h1>Boa, <span id="confirmed-name">Player</span>!</h1>
+            <p id="sync-status">Salvando resposta na nuvem...</p>
+            
+            <div class="saved-box">
+                <div class="saved-header">
+                    <span>🌐 Respostas em Tempo Real</span>
+                    <span class="live-dot" title="Conectado">● LIVE</span>
+                </div>
+                <ul id="saved-list" class="saved-list">
+                    <li style="color:#94a3b8; font-size:0.85rem; text-align:center;">Carregando respostas...</li>
+                </ul>
+            </div>
+
+            <button id="btn-reset" class="btn-secondary">Responder novamente</button>
+        </section>
+    </main>
+
+    <!-- Firebase SDK (Compatível com abertura direta sem servidor complexo) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
